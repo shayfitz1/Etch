@@ -1,0 +1,309 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+body{
+    background-image: url(boardgames.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.canvas-top{
+    border: 30px solid rgb(255, 0, 0);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 65em;
+    background-color: white;
+}
+
+.canvas-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 65em;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#style-button{
+    display: none;
+}
+
+.button-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shake-button{
+    background-color: rgb(153, 66, 66);
+    border-radius: 15px;
+    border: none;
+    color: white;
+    outline: none;
+    text-transform: uppercase;
+    width: 10em;
+    height: 3.5em;
+    margin-top: 5px;
+}
+
+#shake-button:hover{
+    background-color: rgb(179, 117, 117);
+}
+
+.shake{
+    animation: shake 0.5s;
+}
+
+.directions{
+    display: none;
+}
+
+.style-container{
+    width: 60em;
+    height: 7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.styler{
+    display: flex;
+    justify-content: center;
+    width: 93%;
+}
+
+.styler p{
+    width: 3em;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 95%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: rgb(175, 76, 76);
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(175, 76, 76);
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    margin-right: .4em;
+    transform: scale(1.2);
+}
+
+
+@keyframes shake{
+    10%, 90% {
+        transform: translateX(5px);
+    }
+    20%, 80% {
+        transform: translateX(10px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-20px);
+    }
+    40%, 60% {
+        transform: translateX(20px);
+    }
+}
+
+
+/* =============================
+          MEDIA QUERIES
+============================= */
+@media(max-width: 1024px){
+    .canvas-top{
+        height: 83vh;
+        width: 100vw;
+    }
+
+    .canvas-bottom{
+        height: 17vh;
+        width: 100vw;
+    }
+
+    #shake-button{
+        width: 10em;
+        height: 7em;
+    }
+
+    #style-button{
+        display: flex;
+        outline: none;
+        z-index: 3;
+        color: rgba(255, 255, 255, 0.863);
+        position: absolute;
+        font-size: 24px;
+        margin-top: 2px;
+        font-size: 14px;
+    }
+
+    #style-button *{
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .button-container{
+        justify-content: space-evenly;
+    }
+
+    .directions{
+        display: flex;
+        height: 16em;
+        width: 16em;
+    }
+
+    .up-down{
+        flex-direction: column;
+    }
+
+    .directions p{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid lightgray;
+        margin: 1px;
+        border-radius: 10px;
+        color: grey;
+    }
+
+    .directions p:active{
+        border: 2px solid black;
+        color: black;
+    }
+
+    .arrow{
+        font-size: 2em;
+    }
+
+    .style-container{
+        width: 90vw;
+        height: 100px;
+        justify-content: space-between;
+        position: absolute;
+        top: calc(83vh - 100px - 40px);
+        order: 0;
+        display: none;
+    }
+
+    .visible{
+        display: flex;
+        transition: all 0.5s;
+    }
+
+    .styler{
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .slider{
+        height: 25px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 25px;
+        height: 25px;
+    }
+      
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media(max-width: 768px){
+    .canvas-top{
+        height: 83vh;
+        width: 100vw;
+    }
+    .canvas-bottom{
+        height: 17vh;
+        width: 100vw;
+    }
+
+    .slider{
+        height: 22px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 22px;
+        height: 22px;
+    }
+      
+    .slider::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+    }
+
+    .directions{
+        height: 13em;
+        width: 13em;
+    }
+}
+
+@media (max-width: 420px){
+    body{
+        justify-content: stretch;
+    }
+
+    .canvas-top{
+        margin-top: 0;
+        border: 20px solid red;
+    }
+
+    .style-container{
+        top: calc(83vh - 100px - 20px);
+        justify-content: space-evenly;
+    }
+
+    #shake-button{
+        width: 8em;
+        height: 5.5em;
+        margin-top: 0;
+    }
+
+    .directions{
+        height: 9em;
+        width: 9em;
+    }
+}
